@@ -57,3 +57,22 @@ function calcularPerimetroArea(){
     const value = input.value;
 
 }
+//Fin codigo - Calcular Figuras
+// Calcular  porcentae
+function culcularPrecionConDescuento(precio, descuento){
+    const procentajePrecionConDescuento = 100 - descuento;
+    const precionConDescuento = (precio*procentajePrecionConDescuento)/100;
+    return precionConDescuento;
+}
+function onClickDescount(){
+    const inputPrice = document.getElementById("inputPrice");
+    const priceValue = inputPrice.value;
+    const inputDescount = document.getElementById("inputDiscount");
+    const discountValue = inputDescount.value;
+
+    const precionConDescuento = culcularPrecionConDescuento(priceValue, discountValue);
+
+
+    const resultp = document.getElementById("resultP");
+    resultp.innerText = "El precion con descuento son: $"+precionConDescuento;
+}
