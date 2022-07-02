@@ -112,3 +112,35 @@ function calcularMediana(lista){
     }
     return mediana;
 }
+//Fin codigo mediana
+//Codigo Moda
+function calcularModa(list1){
+    //const list1 = [1,1,2,3,4,2,1,2,1,2,1];
+    const list1Count = {};
+    list1.map(
+        function(elemento){
+            if(list1Count[elemento]){
+                list1Count[elemento] += 1;
+            }
+            else{
+                list1Count[elemento] = 1;
+            }
+        }
+    );
+
+    const listArray = Object.entries(list1Count).sort(
+        function(valorAcumulado, nuevoValor){
+            valorAcumulado - nuevoValor
+        }
+    );
+
+    const list1Array = Object.entries(list1Count).sort(
+        function(elementoA, elementoB){
+            return elementoA[1] - elementoB[1];
+        }
+    );
+
+    return list1Array[list1Array.length-1];
+
+}
+//Fin codigo moda
