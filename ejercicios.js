@@ -170,6 +170,18 @@ function medianaSalarios(lista){
     }
 }
 
-console.log(
-    medianaSalarios(salariosESSorte)
+const medianageneral = medianaSalarios(salariosESSorte);
+
+//mediana del top 10%
+
+const splitceStart = (salariosESSorte.length * 90)/100;
+const spliceCount = salariosESSorte.length-splitceStart;
+
+const salariosTop10 = salariosESSorte.splice(
+    splitceStart,
+    spliceCount
 );
+
+const medianaTop100 = medianaSalarios(salariosTop10);
+
+console.log({medianageneral, medianaTop100});
