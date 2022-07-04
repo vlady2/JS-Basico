@@ -89,18 +89,16 @@ function calcularMediaAritmetica(lista) {
     return promedioLista;
   }
 //Calcular Mediana
+function esPar(numero){
+    return (numero%2 === 0);
+}
+
 function calcularMediana(lista){
     const lista1 = lista.sort(function(a,b){return a-b});
     const mitadlista1 = parseInt(lista1.length/2);
-    function esPar(numero){
-        if(numero%2 === 0){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
+
     let mediana;
+
     if (esPar(lista1.length)){
         const elemento1 = lista1[mitadlista1-1];
         const elemento2 = lista1[mitadlista1];
@@ -110,6 +108,7 @@ function calcularMediana(lista){
     else{
         mediana = lista1[mitadlista1];
     }
+
     return mediana;
 }
 //Fin codigo mediana
@@ -144,3 +143,33 @@ function calcularModa(list1){
 
 }
 //Fin codigo moda
+const salarioES = salvador.map(
+    function(persona){
+        return persona.salary;
+    }
+);
+
+const salariosESSorte = salarioES.sort(
+    function(salarioA, salarioB){
+        return salarioA-salarioB;
+    }
+);
+
+function medianaSalarios(lista){
+    const mitad = parseInt(lista.length/2);
+
+    if(esPar(lista.length)){
+        const personaA = lista[mitad-1];
+        const personaB = lista[mitad];
+
+        const mediana = calcularMediana([personaA, personaB]);
+        return mediana;
+    }else{
+        const personaMitad = lista[mitad];
+        return personaMitad;
+    }
+}
+
+console.log(
+    medianaSalarios(salariosESSorte)
+);
